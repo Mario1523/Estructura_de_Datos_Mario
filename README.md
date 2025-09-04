@@ -16,3 +16,7 @@ Este programa permite trabajar con un arreglo de **10 números enteros positivos
 1. Compilar el programa:
    ```bash
    gcc main.c -o ordenamiento
+## Integrantes
+
+1. Carlos Mario Portocarrero Pestana
+2. Janny Esneyder Osorio
