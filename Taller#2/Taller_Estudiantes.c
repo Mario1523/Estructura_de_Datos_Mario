@@ -1,3 +1,64 @@
+// Función para mostrar estudiantes
+void mostrarEstudiantes(const Estudiante arr[], int n) {
+    printf("\nCod\tNota\n");
+    for (int i = 0; i < n; i++)
+        printf("%d\t%.2f\n", arr[i].codigo, arr[i].nota);
+}
+
+// Opciones del menú
+enum OpcionesMenu {
+    NOTA_MAX = 1,
+    PROMEDIO,
+    ORDENAR_COD,
+    MOSTRAR,
+    SALIR
+};
+
+int mostrarMenu() {
+    int op;
+    printf("\n=== MENÚ ===\n");
+    printf("1. Nota máxima (recursivo)\n");
+    printf("2. Promedio (recursivo)\n");
+    printf("3. Ordenar por código (Selection Sort Recursivo)\n");
+    printf("4. Mostrar estudiantes\n");
+    printf("5. Salir\n");
+    printf("Opción: ");
+    scanf("%d", &op);
+    return op;
+}
+
+int main() {
+    int opcion;
+    int ordenado = 0;
+
+    do {
+        opcion = mostrarMenu();
+
+        switch(opcion) {
+            case NOTA_MAX:
+                printf("Nota máxima: %.2f\n", notaMaxRec(estudiantes, NUM_ESTUDIANTES));
+                break;
+            case PROMEDIO:
+                printf("Promedio: %.2f\n", sumaNotasRec(estudiantes, NUM_ESTUDIANTES)/NUM_ESTUDIANTES);
+                break;
+            case ORDENAR_COD:
+                ordenarCodRec(estudiantes, NUM_ESTUDIANTES, 0);
+                ordenado = 1;
+                printf("Estudiantes ordenados por código.\n");
+                break;
+            case MOSTRAR:
+                mostrarEstudiantes(estudiantes, NUM_ESTUDIANTES);
+                break;
+            case SALIR:
+                printf("Saliendo...\n");
+                break;
+            default:
+                printf("Opción no válida.\n");
+        }
+    } while(opcion != SALIR);
+
+    return 0;
+}
 // Función recursiva para ordenar por código (Selection Sort)
 void ordenarCodRec(Estudiante arr[], int n, int inicio) {
     if (inicio >= n-1) return;
