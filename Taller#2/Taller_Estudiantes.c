@@ -1,3 +1,22 @@
+// Inclusión de librería estándar para printf y scanf
+#include <stdio.h>
+
+typedef struct {
+    int codigo;
+    float nota;
+} Estudiante;
+
+#define NUM_ESTUDIANTES 6
+
+Estudiante estudiantes[NUM_ESTUDIANTES] = {
+    {2024101, 4.5},
+    {2024102, 3.2},
+    {2024103, 2.9},
+    {2024104, 4.0},
+    {2024105, 3.8},
+    {2024106, 4.7}
+};
+
 // Función para mostrar estudiantes
 void mostrarEstudiantes(const Estudiante arr[], int n) {
     printf("\nCod\tNota\n");
@@ -6,6 +25,7 @@ void mostrarEstudiantes(const Estudiante arr[], int n) {
 }
 
 // Opciones del menú
+
 enum OpcionesMenu {
     NOTA_MAX = 1,
     PROMEDIO,
@@ -13,6 +33,7 @@ enum OpcionesMenu {
     MOSTRAR,
     SALIR
 };
+
 
 int mostrarMenu() {
     int op;
@@ -27,21 +48,14 @@ int mostrarMenu() {
     return op;
 }
 
-#define NUM_ESTUDIANTES 6
 
-typedef struct {
-    int codigo;
-    float nota;
-} Estudiante;
 
-Estudiante estudiantes[NUM_ESTUDIANTES] = {
-    {2024101, 4.5},
-    {2024102, 3.2},
-    {2024103, 2.9},
-    {2024104, 4.0},
-    {2024105, 3.8},
-    {2024106, 4.7}
-};
+
+// Prototipos de funciones
+float notaMaxRec(const Estudiante arr[], int n);
+float sumaNotasRec(const Estudiante arr[], int n);
+void ordenarCodRec(Estudiante arr[], int n, int inicio);
+int buscarMinIdx(const Estudiante arr[], int n, int inicio, int minIdx);
 
 int main() {
     int opcion;
