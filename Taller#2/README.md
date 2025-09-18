@@ -16,5 +16,10 @@ Promedio del curso (recursivo)
 Ordenamiento de códigos (recursivo)
 
 ## Compilación
-gcc taller.c -o taller.exe
-./taller.exe
+En cosola pega los siguientes comandos
+
+1. cd Taller#2
+2. gcc Taller_Estudiantes.c -o Taller_Estudiantes.exe
+
+
+
