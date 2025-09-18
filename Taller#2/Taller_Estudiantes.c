@@ -14,3 +14,16 @@ Estudiante estudiantes[NUM_ESTUDIANTES] = {
     {2024105, 3.8},
     {2024106, 4.7}
 };
+
+// Función recursiva para encontrar la nota máxima
+float notaMaxRec(const Estudiante arr[], int n) {
+    if (n == 1) return arr[0].nota;
+    float maxRest = notaMaxRec(arr, n-1);
+    return (arr[n-1].nota > maxRest) ? arr[n-1].nota : maxRest;
+}
+
+// Función recursiva para sumar las notas
+float sumaNotasRec(const Estudiante arr[], int n) {
+    if (n == 0) return 0;
+    return arr[n-1].nota + sumaNotasRec(arr, n-1);
+}
